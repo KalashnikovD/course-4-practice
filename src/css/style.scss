@@ -66,9 +66,21 @@ header {
     align-self: auto;
 }
 .header-wrapper {    
+
+    @media only screen and (max-width: 768px) {
+        display: flex;       
+        align-items: center;
+        height: 70px;;
+    }
+
     .header-logo {      
         padding: 15px;
         text-align: center;
+
+        @media only screen and (max-width: 768px) {
+           order: 1;  
+           flex: 1 1 auto; 
+        }
 
         img { 
             width: 400px;
@@ -77,9 +89,39 @@ header {
     }
     .header-nav {
         background: #f6f6f6;
+        position: relative;
+
+        @media only screen and (max-width: 768px) {
+            background: none;
+            width: 36px;
+            margin-right: 15px;;
+            position: inherit; 
+            flex: 0 1 auto;
+            flex-shrink: 0;
+         }
+
+        nav {
+            @media only screen and (max-width: 768px) {
+                background: #fff;
+                position: absolute;
+                top: 51px;;
+                left: -100%;  
+                transition: all 0.4s ease;    
+                z-index: 33;
+                width: 100%;      
+                padding: 15px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            }
+        }
+
+
         ul {
             display: flex;
             flex-wrap: wrap;
+
+            @media only screen and (max-width: 768px) {
+                display: block;           
+            }
                     
             li {
                 order: 0;
@@ -87,6 +129,10 @@ header {
                 width: 25%; 
                 font-size: 18px;
 			    text-transform: uppercase;
+
+                @media only screen and (max-width: 768px) {
+                    width: 100%;      
+                }
                 
                 a {
                     background: rgba(33, 33, 33, 0);                    
@@ -120,6 +166,10 @@ header {
     text-indent: -9999px;
     transition: background 0.3s;
 
+    @media only screen and (max-width: 768px) {                
+        display: block;
+    }
+
     span {
 	  transition: background 0s 0.3s;
 	  display: block;
@@ -129,7 +179,7 @@ header {
 	  left: 3px;
 	  right: 3px;
 	  height: 2px;
-	  background: #cc3333;
+      background: rgba(33, 33, 33, 1);
 
 	  &:before, &:after {
 		transition-duration: 0.3s, 0.3s;
@@ -139,7 +189,7 @@ header {
 		left: 0;
 		width: 100%;
 		height: 2px;
-		background-color: #cc3333;
+		background-color: rgba(33, 33, 33, 1);
 		content: '';
 	  }
 
@@ -154,7 +204,7 @@ header {
 	  }
     }
     &.active {
-	  background-color: #cc3333;
+        background: rgba(33, 33, 33, 1);  
 
 	  span {
 		background: none;
@@ -172,6 +222,10 @@ header {
 		    background-color: #fff;
 		}
 	  }
+    }
+
+    &.active + nav {
+        left: 0;
     }
 }
 
@@ -290,8 +344,7 @@ main {
             position: relative;
             box-shadow: 0 0 5px rgba(0,0,0,0.1);
 
-            @media only screen and (max-width: 768px) {
-                
+            @media only screen and (max-width: 768px) {                
                 width: 100%;
             }
         }
