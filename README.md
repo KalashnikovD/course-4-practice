@@ -18,3 +18,12 @@ npm run build
 
 ### Ready assembly in the "build" folder
 Open the index.html please
+
+
+### Stylesheet source file
+src\css\style.scss
+
+### source html file
+src\index.html
+
+
